@@ -1,0 +1,86 @@
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+p {
+    font-family: monospace;
+}
+
+img {
+
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    background-color: #f7f7f7;
+}
+
+main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.message {
+    background-color: lightgoldenrodyellow;
+    color: midnightblue;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 20px;
+    display: none;
+
+}
+.button {
+    font-family:'Courier New', Courier, monospace; 
+    font-size: 18px;
+    padding: 10px 20px;
+    border: 3px solid midnightblue;
+    background-color: lightcyan;
+    color: midnightblue;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+    background-color: midnightblue;
+    color: white;
+}
+
+.tree {
+    width: 400px;
+}
+
+.basket {
+    width: 100px;
+    position: absolute;
+    left: 70%;
+    bottom: 75px;
+    transform: translateX(-50%);
+}
+
+.mysteryFruit {
+    display: none;
+    position: absolute;
+    top: 150px;
+    left: 65%;
+    transform: translateX(-50%);
+}
+
+/* DONT FORGET TO ADD:
+1) Tree Shake
+2) Falling Furit
+*/

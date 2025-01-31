@@ -1,4 +1,12 @@
-const selectedFruit = () => {
+
+
+document.querySelector(".button").addEventListener("click", startFruitDrop);
+
+function startFruitDrop(){
+  
+}
+
+function getRandomFruit() {
     let fruits = ['lemon', 'orange', 'grapefruit', 'apple', 'banana'];
     let randFruit =   Math.floor(Math.random() * fruits.length);
     
@@ -29,4 +37,7 @@ const selectedFruit = () => {
     break;
     default: console.log('unclear if citrus ❓🍊❓');
   }
-  
+
+  // need a function to shake tree image
+  // need a function to drop fruit image from tree to basket
+
