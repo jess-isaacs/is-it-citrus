@@ -1,21 +1,27 @@
-
-
 document.querySelector(".button").addEventListener("click", startFruitDrop);
 
 function startFruitDrop() {
   shakeTree();
-  let fruit = getRandomFruit();
-  dropFruit(fruit);
-  showMessage(fruit);
+
+  setTimeout(() => {
+    let fruit = getRandomFruit();
+    dropFruit(fruit);
+    
+    setTimeout (() => {
+      showMessage(fruit);
+    }, 1000);
+  }, 500);
 }
 
 function shakeTree() {
   let tree = document.querySelector(".tree");
-  tree.classList.add("shake");
+
+  tree.classList.remove("shake");
+  void tree.offsetWidth;
 
   setTimeout(() => {
-    tree.classList.remove("shake);")
-  }, 500);
+    tree.classList.add("shake");
+  }, 10);
 }
 
 function getRandomFruit() {
@@ -34,7 +40,9 @@ function dropFruit(fruit) {
 
   fruitElement.src = `assets/mysteryfruit.png`;
   fruitElement.style.display = "block";
+
   fruitElement.style.animation = "none";
+  void fruitElement.offsetWidth;
   setTimeout(() => {
     fruitElement.style.animation = "fall 1s ease-in-out forwards";
   }, 10);
@@ -67,10 +75,10 @@ function showMessage(fruit) {
 };
 
   let messageBox = document.querySelector(".message");
-  let messageText = `You picked a ${fruit} ${fruitEmojis[fruit] || ''} - `;
+  let messageText = `You picked a ${fruit} ${fruitEmojis[fruit] || ''}! This fruit is `;
   messageText += (fruit === "lemon" || fruit === "lime" || fruit === "tangerine" || fruit === "pomelo" || fruit === "yuzu" || fruit === "citron" || fruit === "mandarin" || fruit === "clementine" || fruit === "blood orange" || fruit === "orange" || fruit === "grapefruit")
-    ? "Confirmed Citrus 🍊🍋🍋‍🟩"
-    : "Not a Citrus ❌🍋"
+    ? "confirmed citrus 🍊🍋🍋‍🟩"
+    : "not a citrus ❌🍋"
   
   messageBox.innerHTML = `<p>${messageText}</p>`;
   messageBox.style.display = "block"; 

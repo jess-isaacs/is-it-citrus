@@ -6,10 +6,6 @@ p {
     font-family: monospace;
 }
 
-img {
-
-}
-
 body {
     display: flex;
     justify-content: center;
@@ -60,38 +56,64 @@ section {
     color: white;
 }
 
+.fruit-container {
+    position: absolute;
+    top: 120px;
+    left: 65%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .tree {
     width: 400px;
+    display: inline-block;
+}
+
+.tree-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.controls {
+    text-align: center;
+    margin-top: 20px;
 }
 
 .basket {
-    width: 100px;
+    width: 100px;  
+    height: auto; 
     position: absolute;
-    left: 70%;
-    bottom: 75px;
+    left: 72%; 
+    bottom: -10px;
     transform: translateX(-50%);
 }
 
+
 @keyframes fall {
-    0% { top: 150px; opacity: 1; }
-    100% {top: 400px; opacity: 1; }
+    0% { transform: translateY(0); opacity: 1; }
+    100% {transform: translateY(220px); opacity: 1; }
 }
 
 .mysteryFruit {
     display: none;
-    position: absolute;
-    top: 150px;
-    left: 65%;
-    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
 }
 
 @keyframes shake {
     0% { transform: rotate(0deg); }
-    25% { transform: rotate(-5deg); }
-    50% { transform: rotate(5deg); }
-    75% { transform: rotate(-5deg); }
+    20% { transform: rotate(-5deg); }
+    40% { transform: rotate(5deg); }
+    60% { transform: rotate(-5deg); }
+    80% { transform: rotate(5deg); }
     100% { transform: rotate(0deg); }
 }
+
 
 .shake {
     animation: shake 0.5s ease-in-out;
