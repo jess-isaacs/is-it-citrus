@@ -8,7 +8,8 @@ function startFruitDrop() {
     dropFruit(fruit);
     
     setTimeout (() => {
-      showMessage(fruit);
+      let isCitrus = showMessage(fruit);
+      keepScore(isCitrus);
     }, 1000);
   }, 500);
 }
@@ -75,13 +76,41 @@ function showMessage(fruit) {
 };
 
   let messageBox = document.querySelector(".message");
+  const citrusFruits = ["lemon", "lime", "orange", "grapefruit", "pomelo", "yuzu", "citron", "mandarin", "clementine", "tangerine"];
+  let isCitrus = citrusFruits.includes(fruit);
   let messageText = `You picked a ${fruit} ${fruitEmojis[fruit] || ''}! This fruit is `;
-  messageText += (fruit === "lemon" || fruit === "lime" || fruit === "tangerine" || fruit === "pomelo" || fruit === "yuzu" || fruit === "citron" || fruit === "mandarin" || fruit === "clementine" || fruit === "blood orange" || fruit === "orange" || fruit === "grapefruit")
-    ? "confirmed citrus 🍊🍋🍋‍🟩"
-    : "not a citrus ❌🍋"
+  messageText += isCitrus ? "confirmed citrus 🍊🍋🍋‍🟩" : "not a citrus ❌🍋";
   
   messageBox.innerHTML = `<p>${messageText}</p>`;
   messageBox.style.display = "block"; 
   
+  return isCitrus;
   };
   
+let citrusPositive = 0;
+let citrusNegative = 0;
+
+const keepScore = (isCitrus) => {
+  let tallyBox = document.querySelector(".tally-box");
+    
+  if (!tallyBox) {
+    console.log("no score yet, click the button");
+    return;
+  }
+
+  if (getComputedStyle(tallyBox).display === "none") {
+    tallyBox.style.display = "block";
+  }
+  
+  let citrusCountDisplay = document.getElementById("citrus-positive");
+  let nonCitrusCountDisplay = document.getElementById("citrus-negative");
+      
+   if (isCitrus) { 
+    citrusPositive += 1;
+   } else {
+    citrusNegative += 1;
+  }
+
+    citrusCountDisplay.textContent = citrusPositive;
+    nonCitrusCountDisplay.textContent = citrusNegative;
+  };
